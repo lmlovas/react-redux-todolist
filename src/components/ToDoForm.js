@@ -1,19 +1,29 @@
 import React from 'react';
 
 class ToDoForm extends React.Component {
-    handleSubmit(e) {
-        e.preventDefault();
-        console.log(`Create new item`);
+    constructor(props) {
+        super(props);
 
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    
-    render() {
+    textInput = React.createRef();
+
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log(`Create new item: ${this.textInput.current.value}`);
+    };
+
+  render() {
         return (
-            <form className = "input-group my-3">
-                <input className="form-control"
+            <form className = "input-group my-3" onSubmit={this.handleSubmit}>
+                <input
+                className="form-control"
+                name="name"
                 type="text"
-                placeholder="add a new to-do item..." />
+                placeholder="add a new to-do item..."
+                ref={this.textInput}
+                />
                 <div className = "input-group-append">
                 <button className="btn btn-outline-secondary" type="submit">
                     <i className="fas fa-plus" aria-hidden="true"/>
