@@ -26,12 +26,40 @@ class App extends React.Component {
         });
     };
 
+    updateToDoText = (uuid, text) => {
+        this.setState(state => {
+            state.toDoItems[uuid].text = text;
+            return state;
+        });
+    };
+
+    toggleToDoDone = event => {
+        const checkbox = event.target;
+
+        this.setState(state => {
+            state.toDoItems[checkbox.value].done = checkbox.checked;
+            return state;
+        });
+    };
+
+    removeToDo = uuid => {
+        this.setState(state => {
+            delete state.toDoItems[uuid];
+            return state;
+        });
+    };
+
     render() {
         return (
             <div className="container">
                 <Header tagline="Here are all the next tasks."/>
-                <ToDoForm />
-                <ToDoList />
+                <ToDoForm addToDo = {this.addToDo} />
+                <ToDoList
+                items={this.state.toDoItems}
+                updateToDoText ={this.updateToDoText}
+                toggleToDoDone={this.toggleToDoDone}
+                removeToDo={this.removeToDo}
+                />
             </div>
         );
     }
