@@ -6,6 +6,7 @@ class ToDoList extends React.Component {
         return (
             <div className ="todo-list">
                 <table className="todo-items table table-borderless">
+                  <tbody>
                   {Object.keys(this.props.items).map(uuid => (
                     <ToDoItem
                     key={`todo-item-${uuid}`}
@@ -15,6 +16,7 @@ class ToDoList extends React.Component {
                     removeToDo={this.props.removeToDo}
                     />
                   ))}
+                  </tbody>
                 </table>
             </div>
         );
