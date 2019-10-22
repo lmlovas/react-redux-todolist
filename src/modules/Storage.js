@@ -1,6 +1,6 @@
 class Storage {
     constructor() {
-        if(!this.canUseLovalStorage()) {
+        if(!this.canUseLocalStorage()) {
             throw Error ('The local storage is disabled or full!');
         }
     }
