@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { updateToDoText, toggleToDo, removeToDo} from '../actions/index';
 
 class ToDoItem extends React.Component {
     handleInputKeyUp(e) {
@@ -20,7 +22,9 @@ class ToDoItem extends React.Component {
                   id={`todo-done-${todo.uuid}`}
                   type="checkbox"
                   checked={todo.done}
-                  onChange={this.props.toggleToDoDone}
+                  onChange={e => {
+                    this.props.toggleToDo(todo.uuid);
+                  }}
                 />
                 <label
                   className="custom-control-label"
@@ -56,4 +60,11 @@ class ToDoItem extends React.Component {
 
 
 
-export default ToDoItem;
+export default connect (
+  state => ({}),
+  {
+ updateToDoText,
+ toggleToDo,
+ removeToDo,
+}
+)(ToDoItem);

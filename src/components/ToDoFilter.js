@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { filters, setFilter } from '../actions/index';
 
 class ToDoFilter extends React.Component {
-    filters = ['all', 'undone',  'done'];
+    // filters = ['all', 'undone',  'done'];
 
     render() {
         return (
@@ -11,24 +13,35 @@ class ToDoFilter extends React.Component {
                 role="group"
                 aria-label="Set a filter to show items"
                 >
-                    {this.filters.map(filter => (
+                    {Object.keys(filters).map(filterKey => {
+                        const filter = filters[filterKey];
+
+                        return (
                         <button
                         type="button"
                         className={`btn btn-light ${
-                            this.props.activeFilter === filter ? 'active' : ''
+                            this.props.filter === filter ? 'active' : ''
                         }`}
                         onClick={e => {
                             this.props.setFilter(filter);
                         }}
-                        key={filter}
+                        key={filterKey}
                         >
                             {filter}
                         </button>
-                    ))}
+                        );
+                    })}
                 </div>
-                </div>
+            </div>
         );
     }
 }
 
-export default ToDoFilter;
+export default connect(
+    state => ({
+      filter: state.filter,
+    }),
+    {
+      setFilter,
+    }
+  )(ToDoFilter);

@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addToDo } from '../actions/index';
+
 
 class ToDoForm extends React.Component {
     constructor(props) {
@@ -37,4 +40,9 @@ class ToDoForm extends React.Component {
     }
 }
 
-export default ToDoForm;
+export default connect(
+    state => ({}),
+    {
+        addToDo,
+    }
+)(ToDoForm);
