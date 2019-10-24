@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +67,19 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+=======
+# react-redux-todolist
+
+I reviewed the following topics with this tutorial:
+
+- Setting up a React App using React Script
+- Writing HTML with JSX
+- Adding SCSS to React
+- Using Font Awesome with React
+- Creating React components
+- Understanding the state
+- Persisting data with localStorage
+- Routing with React Router
+- Implementing Redux
+- Usage of Redux Dev Tools
+>>>>>>> 74b13a0db89a8d2451ccf768a77b522163de24b4
